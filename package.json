@@ -5,7 +5,7 @@
   "repository": "git@github.com:slaymance/screeps.git",
   "author": "Shane Laymance <shane.laymance@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "rollup -c",
     "push": "rollup -c --environment DEST:main"
