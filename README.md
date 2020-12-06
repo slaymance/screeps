@@ -1,5 +1,5 @@
 # screeps
-My codebase for the game Screeps
+My codebase for the game Screeps.
 
 ## Setup
 1. Install [Yarn](https://yarnpkg.com/getting-started) package manager.

@@ -1,6 +1,9 @@
-import babel from '@rollup/plugin-babel';
+import path from 'path';
+import commonjs from 'rollup-plugin-commonjs';
+import resolve from 'rollup-plugin-node-resolve';
 import screeps from 'rollup-plugin-screeps';
 import { config } from 'dotenv';
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 
 config({ path: `.env.${process.env.DEST}` });
 
@@ -20,7 +23,11 @@ export default {
     format: 'cjs',
   },
   plugins: [
-    babel({ babelHelpers: 'bundled' }),
-    screeps({ config: branchConfig, dryRun: null })
+    getBabelOutputPlugin({
+      configFile: path.resolve(__dirname, 'babel.config.json')
+    }),
+    commonjs(),
+    resolve(),
+    process.env.TOKEN && screeps({ config: branchConfig, dryRun: null })
   ],
 };
